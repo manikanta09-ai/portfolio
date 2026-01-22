@@ -16,7 +16,7 @@
     --accent-hover: #4fd1c7;
     --accent-secondary: #a855f7;
     --white: #ffffff;
-    --nav-height: 70px;
+    --nav-height: 90px;
     --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
     --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
@@ -120,13 +120,18 @@ body {
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 30px;
+    gap: 40px;
+    margin-top: 30px;
+    font-size: medium;
 }
 
 .nav-links a {
     color: var(--text-secondary);
     text-decoration: none;
-    font-size: 13px;
+    font-size: 16px;
+    padding: 10px 0;
+    margin-top: 10px;
+    line-height: 1;
     transition: color 0.3s;
     position: relative;
 }
