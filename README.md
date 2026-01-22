@@ -1,36 +1,136 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Manikanta's Portfolio
 
-## Getting Started
+A modern, responsive portfolio website built with HTML, CSS, and JavaScript. Showcasing skills, projects, experience, and achievements.
 
-First, run the development server:
+## 🌟 Features
 
+- 🎨 **Modern Design**: Clean, professional design with smooth animations
+- 📱 **Fully Responsive**: Works perfectly on all devices and screen sizes
+- ⚡ **Fast Loading**: Static site with no build step required
+- 🎯 **Smooth Scrolling**: Elegant navigation between sections
+- 💼 **Portfolio Sections**: About, Skills, Experience, Projects, Education, and Contact
+
+## 🚀 Quick Start
+
+### Local Development
+
+1. Clone the repository:
+```bash
+git clone <your-repo-url>
+cd manikanta-portfolio
+```
+
+2. For local testing, you can use a simple server:
 ```bash
 npm run dev
 # or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npx serve .
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. Open `http://localhost:3000` in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📦 Deployment
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Deploy to Vercel
 
-## Learn More
+1. Push your code to GitHub
+2. Import your repository on [Vercel](https://vercel.com)
+3. No configuration needed - Vercel will auto-detect it as a static site
+4. Deploy!
 
-To learn more about Next.js, take a look at the following resources:
+The site will be live at `https://your-project.vercel.app`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Deploy to Netlify
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Push your code to GitHub
+2. Import your repository on [Netlify](https://netlify.com)
+3. Configure build settings:
+   - Build command: Leave empty (or `echo "No build"`)
+   - Publish directory: `.` (root)
+4. Deploy!
 
-## Deploy on Vercel
+The site will be live at `https://your-project.netlify.app`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Deploy to GitHub Pages
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Push your code to GitHub
+2. Go to repository Settings → Pages
+3. Select source branch (usually `main`)
+4. Your site will be live at `https://your-username.github.io/repository-name`
+
+## 📁 Project Structure
+
+```
+├── index.html              # Main HTML file
+├── styles.css              # All CSS styling
+├── script.js               # JavaScript functionality
+├── package.json            # Project configuration
+└── README.md               # This file
+```
+
+## 📝 Customization
+
+### Update Portfolio Information
+
+Edit the `portfolioData` object in `script.js`:
+```javascript
+const portfolioData = {
+    skills: [...],
+    projects: [...]
+};
+```
+
+### Change Colors
+
+Edit CSS variables in `styles.css`:
+```css
+:root {
+    --bg-primary: #0a192f;
+    --accent: #64ffda;
+    /* ... */
+}
+```
+
+### Update Content
+
+Edit `index.html` to update:
+- Hero section text
+- About section
+- Experience details
+- Education information
+- Contact information
+
+## 🎨 Design Features
+
+- **Dark Theme**: Professional dark color scheme
+- **Smooth Animations**: Fade-in and scroll animations
+- **Responsive Navigation**: Mobile-friendly menu
+- **Section Numbering**: Numbered sections for easy navigation
+- **Hover Effects**: Interactive elements with hover states
+
+## 📱 Sections
+
+1. **Home/Hero**: Introduction and call-to-action
+2. **About**: Personal background and technologies
+3. **Skills**: Technical skills and technologies
+4. **Experience**: Work experience and achievements
+5. **Projects**: Portfolio projects with descriptions
+6. **Education**: Academic background
+7. **Contact**: Contact information and links
+
+## 🛠️ Technologies Used
+
+- HTML5
+- CSS3 (with CSS Variables)
+- Vanilla JavaScript
+- No frameworks or dependencies required
+
+## 📄 License
+
+© 2025 Manikanta. All rights reserved.
+
+## 🙏 Credits
+
+- Built with vanilla HTML, CSS, and JavaScript
+- Modern design inspired by contemporary portfolio websites
+- Fully responsive and accessible
