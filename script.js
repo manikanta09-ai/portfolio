@@ -61,6 +61,8 @@ const portfolioData = {
     ]
 };
 
+
+
 // =======================
 // Initialization
 // =======================
@@ -143,15 +145,15 @@ function populateProjects() {
         }
 
         // GitHub Link
-        if (project.github) {
-            const link = document.createElement('a');
-            link.href = project.github;
-            link.target = '_blank';
-            link.rel = 'noopener noreferrer';
-            link.className = 'project-github';
-            link.textContent = 'GitHub ↗';
-            card.appendChild(link);
-        }
+      if (project.github) {
+    const link = document.createElement('a');
+    link.href = project.github;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    link.className = 'view-code-btn';
+    link.textContent = 'View Code';
+    card.appendChild(link);
+}
 
         container.appendChild(card);
     });
