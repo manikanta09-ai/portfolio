@@ -1,159 +1,173 @@
+// =======================
 // Portfolio Data
+// =======================
 const portfolioData = {
     skills: [
         'Python', 'SQL', 'Java', 'Pandas', 'NumPy',
         'Machine Learning', 'Power BI', 'Excel',
         'OpenCV', 'HTML', 'CSS', 'JavaScript'
     ],
+
     projects: [
         {
             name: 'Face Mask Detection System',
-            description: 'Developed a Convolutional Neural Network (CNN) based face mask classifier to detect mask usage in real-time. Preprocessed and trained the model on a labeled dataset sourced from Kaggle to achieve high detection accuracy. Integrated OpenCV for real-time video feed processing and prediction visualization.',
-            tools: ['Python', 'OpenCV', 'Kaggle Dataset']
+            description:
+                'Developed a CNN-based face mask classifier for real-time detection using OpenCV and a Kaggle dataset.',
+            tools: ['Python', 'OpenCV', 'Kaggle Dataset'],
+            github: 'https://github.com/manikanta09-ai/face-mask-detection'
         },
         {
-            name: 'Computer Vision–Based Tool Detection Using Custom YOLOv8 Model',
-            description: 'Developed a custom multi-class computer vision model using YOLOv8 to detect and classify 80+ industrial tools within workstation environments. Built a unified annotated dataset using Roboflow with preprocessing, augmentation, and class remapping, significantly improving model robustness and detection accuracy for real-world deployment.',
-            tools: ['Python', 'YOLOv8', 'Roboflow', 'OpenCV', 'Google Colab']
+            name: 'Computer Vision–Based Tool Detection (YOLOv8)',
+            description:
+                'Built a custom YOLOv8 multi-class object detection model for identifying industrial tools using Roboflow.',
+            tools: ['Python', 'YOLOv8', 'Roboflow', 'OpenCV', 'Google Colab'],
+            github: 'https://github.com/manikanta09-a'
         },
         {
-            name: 'EarlyGuard — Community-Driven Disaster Early Warning System',
-            description: 'Developed an IoT-based disaster alert system for rural areas using mesh networks and FM radio to ensure offline operation during network failures.',
-            tools: ['ESP32', 'LoRa', 'FM Radio (Si4713)', 'IoT Sensors', 'Machine Learning']
+            name: 'EarlyGuard — Disaster Early Warning System',
+            description:
+                'IoT-based disaster alert system using mesh networks and FM radio for offline rural communication.',
+            tools: ['ESP32', 'LoRa', 'FM Radio (Si4713)', 'IoT Sensors', 'Machine Learning'],
+            github: 'https://github.com/manikanta09-a'
         },
         {
-            name: 'Driver Drowsiness Detection and Alert System',
-            description: 'Built a real-time driver drowsiness monitoring system using facial landmark detection and Eye Aspect Ratio (EAR) to identify eye closure and fatigue. Implemented automated alert generation (audio alarm) when prolonged eye closure or yawning was detected, improving system responsiveness in low-light and dynamic conditions.',
-            tools: ['Python', 'OpenCV', 'MediaPipe', 'NumPy']
+            name: 'Driver Drowsiness Detection System',
+            description:
+                'Real-time driver fatigue monitoring using facial landmarks and Eye Aspect Ratio (EAR) with alert generation.',
+            tools: ['Python', 'OpenCV', 'MediaPipe', 'NumPy'],
+            github: 'https://github.com/manikanta09-ai/Drowsiness-Detection'
         },
         {
             name: 'Customer Churn Analysis Dashboard',
-            description: 'Analyzed customer behavior and historical usage data to identify key churn drivers. Performed data preprocessing and exploratory data analysis (EDA) using Python. Built interactive dashboards to visualize churn rate, CLTV, and retention trends. Provided actionable insights to support data-driven business decisions.',
-            tools: ['Python', 'Pandas', 'SQL', 'Power BI']
+            description:
+                'Performed EDA and built interactive dashboards to analyze churn drivers and retention trends.',
+            tools: ['Python', 'Pandas', 'SQL', 'Power BI'],
+            github: 'https://github.com/manikanta09-a'
         },
         {
             name: 'Mobile Sales Trends Analysis',
-            description: 'Conducted EDA on mobile sales datasets to uncover demand and sales trends. Cleaned and transformed datasets by handling missing values and inconsistent formats. Identified seasonal and product-level trends for strategic planning.',
-            tools: ['Python', 'Pandas', 'Excel']
+            description:
+                'Conducted EDA on mobile sales data to uncover demand patterns and seasonal trends.',
+            tools: ['Python', 'Pandas', 'Excel'],
+            github: 'https://github.com/manikanta09-ai/mobile_sales_trends'
         },
         {
-            name: 'Real-Time Hand Gesture Recognition for Interactive Systems',
-            description: 'Developed a real-time, training-free hand gesture recognition system using HSV + YCrCb skin color models combined with landmark-based geometric analysis for accurate gesture detection. Implemented rule-based classification using finger extension and thumb orientation to recognize gestures such as Open Palm, Fist, Two-Finger V, Pointing, Thumbs Up/Down, achieving ~92.5% accuracy on CPU-only systems.',
-            tools: ['Python', 'OpenCV', 'MediaPipe', 'NumPy']
+            name: 'Real-Time Hand Gesture Recognition',
+            description:
+                'Training-free hand gesture recognition using HSV + YCrCb skin models and landmark-based geometry.',
+            tools: ['Python', 'OpenCV', 'MediaPipe', 'NumPy'],
+            github: 'https://github.com/manikanta09-a'
         }
     ]
 };
 
-// Initialize
+// =======================
+// Initialization
+// =======================
 document.addEventListener('DOMContentLoaded', () => {
     initializeNavigation();
     populateSkills();
     populateProjects();
     setupSmoothScroll();
+    setupScrollAnimations();
 });
 
+// =======================
 // Navigation
+// =======================
 function initializeNavigation() {
     const menuToggle = document.getElementById('menu-toggle');
     const navLinks = document.querySelector('.nav-links');
-    
+
     if (menuToggle) {
         menuToggle.addEventListener('click', () => {
             navLinks.classList.toggle('active');
         });
     }
-    
-    // Close mobile menu when clicking a link
-    const links = document.querySelectorAll('.nav-links a');
-    links.forEach(link => {
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
         link.addEventListener('click', () => {
             navLinks.classList.remove('active');
         });
     });
-    
-    // Active link highlighting
-    window.addEventListener('scroll', () => {
-        const sections = document.querySelectorAll('section[id]');
-        const scrollY = window.pageYOffset;
-        
-        sections.forEach(section => {
-            const sectionHeight = section.offsetHeight;
-            const sectionTop = section.offsetTop - 100;
-            const sectionId = section.getAttribute('id');
-            const navLink = document.querySelector(`.nav-links a[href="#${sectionId}"]`);
-            
-            if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-                document.querySelectorAll('.nav-links a').forEach(link => {
-                    link.style.color = '';
-                });
-                if (navLink) {
-                    navLink.style.color = 'var(--accent)';
-                }
-            }
-        });
-    });
 }
 
+// =======================
 // Populate Skills
+// =======================
 function populateSkills() {
     const skillsContainer = document.getElementById('skills-container');
     if (!skillsContainer) return;
-    
+
     portfolioData.skills.forEach(skill => {
-        const skillTag = document.createElement('div');
-        skillTag.className = 'skill-tag';
-        const skillSpan = document.createElement('span');
-        skillSpan.textContent = skill;
-        skillTag.appendChild(skillSpan);
-        skillsContainer.appendChild(skillTag);
+        const tag = document.createElement('div');
+        tag.className = 'skill-tag';
+        tag.textContent = skill;
+        skillsContainer.appendChild(tag);
     });
 }
 
+// =======================
 // Populate Projects
+// =======================
 function populateProjects() {
-    const projectsContainer = document.getElementById('projects-container');
-    if (!projectsContainer) return;
-    
+    const container = document.getElementById('projects-container');
+    if (!container) return;
+
     portfolioData.projects.forEach(project => {
-        const projectCard = document.createElement('div');
-        projectCard.className = 'project-card';
-        
+        const card = document.createElement('div');
+        card.className = 'project-card';
+
         const title = document.createElement('h3');
         title.textContent = project.name;
-        
-        const description = document.createElement('p');
-        description.textContent = project.description;
-        
-        projectCard.appendChild(title);
-        projectCard.appendChild(description);
-        
-        // Add tools if available
-        if (project.tools && project.tools.length > 0) {
-            const toolsContainer = document.createElement('div');
-            toolsContainer.className = 'project-tools';
+
+        const desc = document.createElement('p');
+        desc.textContent = project.description;
+
+        card.appendChild(title);
+        card.appendChild(desc);
+
+        // Tools
+        if (project.tools) {
+            const toolsDiv = document.createElement('div');
+            toolsDiv.className = 'project-tools';
+
             project.tools.forEach(tool => {
-                const toolTag = document.createElement('span');
-                toolTag.className = 'project-tool';
-                toolTag.textContent = tool;
-                toolsContainer.appendChild(toolTag);
+                const span = document.createElement('span');
+                span.className = 'project-tool';
+                span.textContent = tool;
+                toolsDiv.appendChild(span);
             });
-            projectCard.appendChild(toolsContainer);
+
+            card.appendChild(toolsDiv);
         }
-        
-        projectsContainer.appendChild(projectCard);
+
+        // GitHub Link
+        if (project.github) {
+            const link = document.createElement('a');
+            link.href = project.github;
+            link.target = '_blank';
+            link.rel = 'noopener noreferrer';
+            link.className = 'project-github';
+            link.textContent = 'GitHub ↗';
+            card.appendChild(link);
+        }
+
+        container.appendChild(card);
     });
 }
 
+// =======================
 // Smooth Scroll
+// =======================
 function setupSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
+        anchor.addEventListener('click', e => {
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
+            const target = document.querySelector(anchor.getAttribute('href'));
             if (target) {
-                const offsetTop = target.offsetTop - 70;
                 window.scrollTo({
-                    top: offsetTop,
+                    top: target.offsetTop - 70,
                     behavior: 'smooth'
                 });
             }
@@ -161,28 +175,23 @@ function setupSmoothScroll() {
     });
 }
 
-// Scroll animations
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
-};
+// =======================
+// Scroll Animations
+// =======================
+function setupScrollAnimations() {
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, { threshold: 0.1 });
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
+    document.querySelectorAll('.section > *').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = '0.6s ease';
+        observer.observe(el);
     });
-}, observerOptions);
-
-// Observe all sections
-document.addEventListener('DOMContentLoaded', () => {
-    const sections = document.querySelectorAll('.section > *');
-    sections.forEach(section => {
-        section.style.opacity = '0';
-        section.style.transform = 'translateY(30px)';
-        section.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
-        observer.observe(section);
-    });
-});
+}

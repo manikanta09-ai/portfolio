@@ -1045,4 +1045,16 @@ body {
     .skills-grid {
         grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
     }
+    .project-github {
+    display: inline-block;
+    margin-top: 12px;
+    color: #64ffda;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.project-github:hover {
+    text-decoration: underline;
+}
+
 }
